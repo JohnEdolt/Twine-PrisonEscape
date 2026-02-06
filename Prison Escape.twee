@@ -1,0 +1,50 @@
+:: StoryTitle
+Prison Escape
+
+
+:: StoryData
+{
+  "ifid": "18FF4DBF-2AA3-4D8E-B9F4-EC7B77B9E1A0",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "Prison Cell",
+  "zoom": 1
+}
+
+
+:: Cellar {"position":"950,350","size":"100,100"}
+<img src="https://github.com/JohnEdolt/Twine-PrisonEscape/blob/main/Images/Cellar.jpg?raw=true" style="max-width:100%;height:auto;">
+
+I've freed myself. I feel like the adventure is only just beginning...
+
+
+:: Prison Cell {"position":"550,350","size":"100,100"}
+(if: $PrisonCellBarsBroken is true)
+[
+<img src="https://github.com/JohnEdolt/Twine-PrisonEscape/blob/main/Images/PrisonCell-BarsBroken.jpg?raw=true" style="max-width:100%;height:auto;">
+]
+(else:)
+[
+<img src="https://github.com/JohnEdolt/Twine-PrisonEscape/blob/main/Images/PrisonCell.jpg?raw=true" style="max-width:100%;height:auto;">
+]
+
+How did I end up here? I'm sitting in a damp, dark cell. In front of me, I see prison bars. (if: $PrisonCellBarsBroken is true)[One of the bars has broken off, so I could [[squeeze through the gap|Cellar]].](else:)[I could [[take a closer look|Prison Cell Bars]], or I could [[just wait|Prison Cell Wait]].]
+
+
+:: Prison Cell Bars {"position":"400,500","size":"100,100"}
+<img src="https://github.com/JohnEdolt/Twine-PrisonEscape/blob/8ab6d76a13e3001941bcd1862a101a05ba0c8834/Images/PrisonCellBars.jpg?raw=true" style="max-width:100%;height:auto;">
+
+The bars look pretty rusty. I could try to [[break them open|Prison Cell Bars Break]] or [[do nothing|Prison Cell Wait]].
+
+
+:: Prison Cell Bars Break {"position":"550,650","size":"100,100"}
+<img src="https://github.com/JohnEdolt/Twine-PrisonEscape/blob/8ab6d76a13e3001941bcd1862a101a05ba0c8834/Images/PrisonCellBarsBreak.jpg?raw=true" style="max-width:100%;height:auto;">
+
+After shaking the bars, nothing happens. When I push against them with all my strength, one bar breaks. This could be my [[chance to escape|Prison Cell]].
+(set: $PrisonCellBarsBroken to true)
+
+
+:: Prison Cell Wait {"position":"700,500","size":"100,100"}
+<img src="https://github.com/JohnEdolt/Twine-PrisonEscape/blob/main/Images/PrisonCellWait.jpg?raw=true" style="max-width:100%;height:auto;">
+
+All I hear is the monotonous sound of drops falling from the ceiling at irregular intervals. [[Nothing happens|Prison Cell]].
